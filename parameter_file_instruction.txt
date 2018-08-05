@@ -1,0 +1,18 @@
+This manual describes the meaning of each parameter in the configuration file sample_config.txt. That file has 8 parameters listed in 8 lines. When modifying the parameter file, make sure that the number of lines and the order of the parameters don't change. Also make sure that there's no leading or trailing blanks for each parameter. The following is a detailed explanation for the parameters. 
+
+The 1st parameter is the file name of the data to be loaded. The data file should be a matrix. Each column represents a series, and each row represents a time step. The first row should be the values of each series at time step t_0 for some constant t_0, the second row should be the values of each series at time step t_0+1 ... 
+
+The 2nd parameter is the index/column of the series to be predicted. It should be larger than 0 and not larger than the total number of columns in the data file.
+
+The 3rd parameter is the solver that will be used in prediction.
+Currently only 'l1_ls' and 'hanso' are available. We suggest using 'l1_ls'. 'path_finding' is not supported yet.
+
+The 4th parameter is the time step that we start making predictions. This parameter should be smaller than the totoal number of rows in the data file, but larger than the 6th parameter. By setting this parameter, we make the assumption that the values for all series are known up to this value minus one, and the rest are unknown (they're loaded into Matlab but we will not cheat by using them for prediction). Each time we make a prediction, we will compare our predicted value against the actual value to compute how much profit we've made.
+
+The 5th parameter is the time step that we stop making predictions. After specifying both the 4rd and 5th parameter, sample_run.m will only make predictions between these two time steps. 
+
+The 6th parameter is the window size we use in both training and prediction. The default value is 100. We suggest the window size to be in the range [50, 400].
+
+The 7th parameter tells the program whether to remove target series or not. It should only be 0 or 1. If it's 0, target series is not removed. If it's 1, target series is removed. For high frequency stock predictions, unless the user has a strong reason to remove the target series, we suggest the user to keep the series in the prediction.
+
+The 8th parameter determines how often we train our model. For example, if it's 100, and we've trained our model at time step 600. Then we will make 100 predictions for each series. We will stop at time step 700 and train the model again. WARNING: train_model() takes time to execute. The program will need a long time to finish if it will be called multiple times.
