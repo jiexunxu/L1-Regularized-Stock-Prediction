@@ -1,10 +1,10 @@
-==============Introduction to FPS==============
+# Introduction
 
 Given a collection of (ideally sparsely correlated) time series, FPS provides functions to make fast and accurate predictions of the future value of a particular time series by using the l1-regularized least squares model and cholesky decomposition and cholesky update. Interested users should carefully read the documentations and integrate our functions to their Matlab projects.
 
 The sample data contained in this project is the difference of the stock prices for the 30 Dow & Jones stocks in Feburary, 2008. Each column is a particuluar Dow & Jones stock. Each row is the difference of the stock price between the price of each stock at current time and the price of the corresponding stock one minute earlier. 
 
-==============Install FPS==============
+# Installation
 
 FPS works with Windows/Unix/Linux/Mac.
 
@@ -12,7 +12,7 @@ First, You need to install Matlab.
 
 Next, you need to set Matlab's PATH variable. Open Matlab, click File -> Set Path... Then click "Add with Subfolders..." on the upper left corner. A prompt will pop up asking you which folder and its subfolders will be added to Matlab's search path. Go to the directory where you have stored FPS, select the FPS folder, and click "OK". The matlab search path has been set up. If you wish to save this new PATH variable, click "Save" on the bottom left corner. You should be able to use our software next time you start Matlab. 
 
-==============Run FPS==============
+# Run
 
 FPS is not an executable project. Instead FPS is a package that contains a function to train our l1-regularized least squares model, and a Matlab object that performs predictions on a particular time series given other time series and itself.
 
@@ -28,6 +28,6 @@ We suggest that interested users carefully read the documentations in sample_run
 
 WARNING: This demo program is going to take a long time (a few hours to about a day) to finish if the difference of start_time and end_time is large (say larger than 3000).
 
-==============License==============
+# License
 
 FPS is a free software. You may use it "as is" for educational or commercial purposes. You must understand however that it is experimental software so may have bugs.
